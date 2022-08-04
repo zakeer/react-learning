@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import HomePage from './Homepage';
 
 function App() {
   return (
-    <h1>Welcome to React Learnings</h1>
+    <HomePage />
+    
   );
 }
 

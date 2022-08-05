@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import HomePage from './Homepage';
+import FilterableProductTable from './components/FilterableProductTable';
 
 function App() {
-  return (
-    <HomePage />
-    
-  );
+  return <FilterableProductTable />
 }
 
 export default App;

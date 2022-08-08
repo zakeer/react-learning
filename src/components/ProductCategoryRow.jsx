@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-function ProductCategoryRow() {
+function ProductCategoryRow({ title }) {
   return (
-    <div>ProductCategoryRow</div>
-  )
+    <tr>
+      <td colSpan={2} className="text-center">
+        <strong>{title}</strong>
+      </td>
+    </tr>
+  );
 }
 
-export default ProductCategoryRow
+export default ProductCategoryRow;

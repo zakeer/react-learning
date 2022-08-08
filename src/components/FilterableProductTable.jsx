@@ -13,8 +13,9 @@ const PRODUCTS = [
 
 export default function FilterableProductTable() {
   return (
-    <div className="product-table">
+    <div className="product-table container p-5">
       <SearchBar />
+      <h1>CHecking Boolean value { true + "" }</h1>
       <ProductTable products={PRODUCTS} />
     </div>
   );

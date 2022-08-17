@@ -3,21 +3,40 @@ import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
 function ProductTable(props) {
-  const { products } = props;
+  const { products, isStockOnly } = props;
   console.log(products);
 
-  const rows = [];
+  const rows = [
+    // <ProductCategoryRow title="Fruits" />,
+    // <ProductRow product={{ name: "Apple", price: "20" }} />,
+    // <ProductRow product={{ name: "Banana", price: "13" }} />,
+
+    // <ProductCategoryRow title="Vegatables" />,
+    // <ProductRow product={{ name: "Tomoto", price: "6" }} />,
+    // <ProductRow product={{ name: "Brinjal", price: "8" }} />,
+
+    // <ProductCategoryRow title="Drinks" />,
+    // <ProductRow product={{ name: "ThumsUp", price: "15" }} />,
+  ];
   let currentCategory = null;
 
-  products.forEach((productItem, idx) => {
-    console.log(currentCategory,  productItem.category, idx, currentCategory !== productItem.category )
-    if(currentCategory !== productItem.category) { // null !== 'fruits', 2. 'fruit' !== 'vegatables'
-      rows.push( <ProductCategoryRow title={productItem.category} /> )
+  products.forEach( singleProduct => {
+    console.log(singleProduct);
+
+    if(currentCategory !== singleProduct.category) { // null !== 'Fruit' -> 'Vegatable' !== 'Vegatable'
+      rows.push( <ProductCategoryRow title={singleProduct.category} /> );
+      currentCategory = singleProduct.category;
     }
 
-    rows.push( <ProductRow product={productItem} /> );
 
-    currentCategory = productItem.category; // 'fruits'
+    if(isStockOnly) {
+      if(singleProduct.stocked) {
+        rows.push( <ProductRow product={singleProduct} />  )
+      }
+    } else {
+      rows.push( <ProductRow product={singleProduct} />  )
+    }
+
   });
 
   return (
@@ -28,12 +47,7 @@ function ProductTable(props) {
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
-        {rows}
-        {/* {products.map((product) => (
-          <ProductRow product={product} />
-        ))} */}
-      </tbody>
+      <tbody>{rows}</tbody>
     </table>
   );
 }

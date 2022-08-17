@@ -2,8 +2,11 @@ import React from "react";
 
 export default function ProductRow({ product }) {
   return (
-    <tr>
-      <td className={product.stocked ? "" : "text-danger"}>{product.name}</td>
+    <tr className={product.stocked ? "" : "text-danger"}>
+      <td>
+        {product.name}
+        { product.stocked ? '' : <span class="badge bg-danger ms-2">out of stock</span> }
+      </td>
       <td>{product.price}</td>
     </tr>
   );

@@ -1,18 +1,19 @@
-import React from 'react'
+import React from "react";
 
-function SearchBar() {
+function SearchBar({ isStockOnly, onIsStockOnlyChange }) {
   return (
-    <form className='bg-light p-3'>
-      <input 
-      className='form-control'
-        type="text" 
-        placeholder='Search for product' />
+    <form className="bg-light p-3">
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Search for product"
+      />
       <label>
-        <input type="checkbox" />
-        <span className='ms-2'>Only show products in stock</span>
+        <input type="checkbox" checked={isStockOnly} onChange={ (e) => onIsStockOnlyChange(e.target.checked) } />
+        <span className="ms-2">Only show products in stock</span>
       </label>
     </form>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

@@ -3,8 +3,8 @@ import React from "react";
 function ProductCategoryRow({ title }) {
   return (
     <tr>
-      <td colSpan={2} className="text-center">
-        <strong>{title}</strong>
+      <td className="text-center fw-bold bg-success text-white" colSpan={2}>
+        {title}
       </td>
     </tr>
   );
